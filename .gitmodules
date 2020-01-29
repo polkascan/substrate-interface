@@ -1,0 +1,6 @@
+[submodule "substrate-interface-api"]
+	path = substrate-interface-api
+	url = https://github.com/polkascan/substrate-interface-api.git
+[submodule "substrate-interface-gui"]
+	path = substrate-interface-gui
+	url = https://github.com/polkascan/substrate-interface-gui.git
