@@ -26,6 +26,9 @@ services:
     image: substrate-interface-gui:latest
     build:
       context: substrate-interface-gui/.
+      args:
+        SUBSTRATE_API_URL: http://localhost:8080/rpc/
+
     ports:
       - '8080:80'
     depends_on:
