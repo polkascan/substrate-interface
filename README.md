@@ -8,12 +8,17 @@ Polkascan Substrate Interface Main Application
 git submodule update --init --recursive
 ```
 
-* Build and run the Docker containers
+* Build and run the Docker containers (using public node wss://kusama-rpc.polkadot.io)
 ```bash
 docker-compose up --build
 ```
 
+* Build and run the Docker containers (using local Kusama CC3 node)
+```bash
+docker-compose -f docker-compose.kusama-cc3-local.yml up --build
+```
+
 ## Links
 
-* Polkascan Substrate Interface GUI: http://127.0.0.1:8080
+* Polkascan Substrate Interface GUI: http://127.0.0.1:8001
 * Polkascan Substrate Interface API: http://127.0.0.1:8000
