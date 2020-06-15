@@ -1,0 +1,39 @@
+version: '3.2'
+
+services:
+
+  substrate-interface-api:
+    build: substrate-interface-api/.
+    image: substrate-interface-api
+    ports:
+      - '8000:8000'
+    volumes:
+      - './substrate-interface-api:/usr/src/app'
+    command: ./start.sh
+    environment:
+      - PYTHONPATH=/usr/src/app
+      - ENVIRONMENT=prod
+      - TYPE_REGISTRY=kusama
+      - TYPE_REGISTRY_FILE=app/type_registry/substrate-node-template.json
+      - SUBSTRATE_ADDRESS_TYPE=42
+      - SUBSTRATE_RPC_URL=http://host.docker.internal:9933/
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:3.2.11
+
+  substrate-interface-gui:
+    image: substrate-interface-gui:latest
+    build:
+      context: substrate-interface-gui/.
+      args:
+        SUBSTRATE_API_URL: http://localhost:8001/rpc/
+
+    ports:
+      - '8001:80'
+    depends_on:
+      - substrate-interface-api
+
+volumes:
+  substrate-data:

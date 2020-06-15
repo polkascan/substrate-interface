@@ -10,7 +10,7 @@ git submodule update --init --recursive
 
 * Build and run the Docker containers (using public node wss://kusama-rpc.polkadot.io)
 ```bash
-docker-compose up --build
+docker-compose -f docker-compose.kusama-cc3-public.yml up --build
 ```
 
 * Build and run the Docker containers (using local Kusama CC3 node)
