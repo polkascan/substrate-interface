@@ -40,7 +40,7 @@ services:
       context: substrate-interface-gui/.
       args:
         SUBSTRATE_API_URL: http://localhost:8001/rpc/
-
+        BASE_HREF: /
     ports:
       - '8001:80'
     depends_on:
