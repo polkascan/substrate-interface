@@ -8,14 +8,29 @@ Polkascan Substrate Interface Main Application
 git submodule update --init --recursive
 ```
 
-* Build and run the Docker containers (using public node wss://kusama-rpc.polkadot.io)
+* Kusama Network using a publicly hosted node:
 ```bash
-docker-compose -f docker-compose.kusama-cc3-public.yml up --build
+docker-compose -p substrate-interface -f docker-compose.kusama-public.yml up --build --remove-orphans
 ```
 
-* Build and run the Docker containers (using local Kusama CC3 node)
+* Kusama Network using a local node that is part of the docker-compose configuration:
 ```bash
-docker-compose -f docker-compose.kusama-cc3-local.yml up --build
+docker-compose -p substrate-interface -f docker-compose.kusama-local.yml up --build --remove-orphans
+```
+
+* Polkadot Network using a publicly hosted node:
+```bash
+docker-compose -p substrate-interface -f docker-compose.polkadot-public.yml up --build --remove-orphans
+```
+
+* Network using a local node that is part of the docker-compose configuration:
+```bash
+docker-compose -p substrate-interface -f docker-compose.polkadot-local.yml up --build --remove-orphans
+```
+
+* Substrate Node Template Development Network using a local node. This step assumes that a Substrate node is running on your local machine. The Docker-Compose configuration points to your localhost from within the configuration:
+```bash
+docker-compose -p substrate-interface -f docker-compose.kusama-public.yml up --build --remove-orphans
 ```
 
 ## Links
